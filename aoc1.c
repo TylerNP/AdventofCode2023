@@ -3,7 +3,7 @@
  *
  * Filename: aoc1.c
  * 
- * Version: 1.0
+ * Version: 2.0
  */
 
 #include <stdio.h>
@@ -12,7 +12,7 @@
 
 #define LINE_LEN 80 // Assume lines read are within 80 
 
-// Struction defining calibration numbers
+// Struct defining calibration numbers
 // Stores calibration numbers as two ints for first and last 
 struct caliNum 
 {
@@ -28,7 +28,7 @@ char findNumWord ( char * input )
 
     char output = '@';
 
-    // Loop through arrays matching properties
+    // Loop through arrays matching chars
     for (int i = 0; i < 9; i++)
     {
         // Variables
