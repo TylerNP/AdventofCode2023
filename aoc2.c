@@ -173,9 +173,7 @@ int main (int argc, char *argv[] )
             largestBag = consolidateBag( largestBag, temp );
 
             // Increment pointer to next game
-            char * newGame = strchr(ptr, ';');
-            if (newGame) *newGame = '@';
-            ptr = newGame + 1;
+            ptr = strchr(ptr, ';')+ 1;
 
         }
 
