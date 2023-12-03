@@ -139,6 +139,7 @@ int * rightNum ( char * input )
 // Return nums in middle
 int * sumMid ( char * input )
 {
+    // Variables
     int sum = 0;
     int * mid = malloc( 3 * sizeof(int) );
     *mid = 0;
@@ -152,6 +153,7 @@ int * sumMid ( char * input )
         int * left = leftNum(input-1);
         int * right = rightNum(input+1);
 
+        // Determine if there is two nums or not
         if (left[1])
         {
             *mid += left[0];
@@ -201,6 +203,8 @@ int * sumAdj ( char ** arr, int row, int elm, int end )
     int * right = rightNum( &arr[row][elm+1] );
     int * top = malloc( 3* sizeof(int) );
     int * bot = malloc( 3* sizeof(int) );
+
+    // Set initial values
     *adj = 0;
     *top = 0;
     *bot = 0;
@@ -239,7 +243,6 @@ int * sumAdj ( char ** arr, int row, int elm, int end )
         }
 
     }
-    
 
     // Free meory
     free(left);
@@ -317,11 +320,15 @@ int main ( int argc, char * argv[] )
             sum += adj[0];
             sumGear += adj[1];
 
+            // Free meory
+            free(adj);
+
         }
         printf("\n");
 
     }
 
+    // Display results
     printf("Part1: %d Part2: %d\n", sum, sumGear);
 
     // Free memory
