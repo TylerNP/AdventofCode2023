@@ -1,7 +1,7 @@
 /*
  * Author: Tyler Pham
  *
- * Filename: aoc3.c
+ * Filename: aoc4.c
  * 
  * Version: 1.0
  */
@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #define LINE_MAX 150
 #define CARD_MAX 200
@@ -77,6 +78,9 @@ int main ( int argc, char * argv[] )
         printf("Need a scratch file");
         exit(1);
     }
+
+    clock_t begin = clock();
+    double time;
 
     // Open Scratch file
     FILE *scratchFile = fopen(argv[1], "r");
@@ -222,7 +226,10 @@ int main ( int argc, char * argv[] )
     {
         cards += *(cardMult + i);
     }
-    printf("\nPart 1: %d | Part 2: %d \n", total, cards);
+    clock_t end = clock();
+    time = (double)(end - begin)/CLOCKS_PER_SEC*1000;
+
+    printf("\nPart 1: %d | Part 2: %d in %.1f ms\n", total, cards, time);
 
     // Free memory
     for ( int i = 0; i < size; i++ )
